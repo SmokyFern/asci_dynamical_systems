@@ -7,7 +7,7 @@ namespace dynamical_systems {
                                                                         m_beta(beta),
                                                                         m_rho(rho) {}
 
-    Eigen::MatrixXd LorenzSystem::get_right_hand_side(Eigen::MatrixXd current_state) {
+    Eigen::MatrixXd LorenzSystem::get_right_hand_side(const Eigen::MatrixXd &current_state) {
 
         Eigen::MatrixXd rhs(current_state.rows(), 3);
         Eigen::VectorXd x, y, z, dx, dy, dz;

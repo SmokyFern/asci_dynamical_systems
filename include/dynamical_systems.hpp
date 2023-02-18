@@ -7,7 +7,7 @@ namespace dynamical_systems {
     class DynamicalSystem {
 
         public:
-            virtual Eigen::MatrixXd get_right_hand_side(Eigen::MatrixXd current_state) { 
+            virtual Eigen::MatrixXd get_right_hand_side(const Eigen::MatrixXd &current_state) { 
                 
                 return current_state; 
                 
@@ -19,7 +19,7 @@ namespace dynamical_systems {
 
         public:
             LorenzSystem(double sigma, double beta, double rho);
-            Eigen::MatrixXd get_right_hand_side(Eigen::MatrixXd current_state);
+            Eigen::MatrixXd get_right_hand_side(const Eigen::MatrixXd &current_state);
 
         private:
             double m_sigma;

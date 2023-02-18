@@ -7,7 +7,7 @@ namespace integrators {
                                                double dt) : m_dt(dt), 
                                                             m_dyn_sys(std::move(dyn_sys)) {}
 
-    Eigen::MatrixXd RungeKuttaVectorized::update(Eigen::MatrixXd current_state) {
+    Eigen::MatrixXd RungeKuttaVectorized::update(const Eigen::MatrixXd &current_state) {
 
         Eigen::MatrixXd f1, f2, f3, f4;
         f1 = get_right_hand_side(current_state);
@@ -19,7 +19,7 @@ namespace integrators {
 
     }
 
-    Eigen::MatrixXd RungeKuttaVectorized::get_right_hand_side(Eigen::MatrixXd current_state) {
+    Eigen::MatrixXd RungeKuttaVectorized::get_right_hand_side(const Eigen::MatrixXd &current_state) {
 
         return m_dyn_sys -> get_right_hand_side(current_state);
 
@@ -29,7 +29,7 @@ namespace integrators {
                                                double dt) : m_dt(dt), 
                                                             m_dyn_sys(std::move(dyn_sys)) {}
 
-    Eigen::MatrixXd ForwardEulerVectorized::update(Eigen::MatrixXd current_state) {
+    Eigen::MatrixXd ForwardEulerVectorized::update(const Eigen::MatrixXd &current_state) {
 
         Eigen::MatrixXd f1;
         f1 = get_right_hand_side(current_state);
@@ -38,7 +38,7 @@ namespace integrators {
 
     }
 
-    Eigen::MatrixXd ForwardEulerVectorized::get_right_hand_side(Eigen::MatrixXd current_state) {
+    Eigen::MatrixXd ForwardEulerVectorized::get_right_hand_side(const Eigen::MatrixXd &current_state) {
 
         return m_dyn_sys -> get_right_hand_side(current_state);
 

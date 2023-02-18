@@ -11,14 +11,14 @@ namespace integrators {
     class Integrator {
 
         public:
-            virtual Eigen::MatrixXd update(Eigen::MatrixXd current_state) {
+            virtual Eigen::MatrixXd update(const Eigen::MatrixXd &current_state) {
                 
                 return current_state;
                 
             }
 
         private:
-            virtual Eigen::MatrixXd get_right_hand_side(Eigen::MatrixXd current_state) {
+            virtual Eigen::MatrixXd get_right_hand_side(const Eigen::MatrixXd &current_state) {
 
                 return current_state;
 
@@ -30,10 +30,10 @@ namespace integrators {
 
         public:
             RungeKuttaVectorized(std::unique_ptr<dyns::DynamicalSystem> &dyn_sys, double dt);
-            Eigen::MatrixXd update(Eigen::MatrixXd current_state);
+            Eigen::MatrixXd update(const Eigen::MatrixXd &current_state);
 
         private:
-            Eigen::MatrixXd get_right_hand_side(Eigen::MatrixXd current_state);
+            Eigen::MatrixXd get_right_hand_side(const Eigen::MatrixXd &current_state);
 
         private:
             double m_dt;
@@ -45,10 +45,10 @@ namespace integrators {
 
         public:
             ForwardEulerVectorized(std::unique_ptr<dyns::DynamicalSystem> &dyn_sys, double dt);
-            Eigen::MatrixXd update(Eigen::MatrixXd current_state);
+            Eigen::MatrixXd update(const Eigen::MatrixXd &current_state);
 
         private:
-            Eigen::MatrixXd get_right_hand_side(Eigen::MatrixXd current_state);
+            Eigen::MatrixXd get_right_hand_side(const Eigen::MatrixXd &current_state);
 
         private:
             double m_dt;

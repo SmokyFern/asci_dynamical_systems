@@ -10,18 +10,18 @@ class ASCIPlotter {
     public:
         ASCIPlotter(int canvas_width, int canvas_length);
 
-        void provide_data_3d(Eigen::MatrixXd data_3d);
-        void provide_data_2d(Eigen::MatrixXd data_2d);
+        void provide_data_3d(const Eigen::MatrixXd &data_3d);
+        void provide_data_2d(const Eigen::MatrixXd &data_2d);
         void plot_asci();
-        void compute_projection(Eigen::MatrixXd data_3d, double x_scale, 
-                                                         double y_scale,
-                                                         double depth_offset);
+        void compute_projection(const Eigen::MatrixXd &data_3d, double x_scale, 
+                                                                double y_scale,
+                                                                double depth_offset);
     private:
         // void compute_projection(Eigen::MatrixXd data_3d, double x_scale, 
         //                                                  double y_scale,
         //                                                  double depth_offset);
-        Eigen::MatrixXd rotate3d(Eigen::MatrixXd data_3d);
-        Eigen::MatrixXd rotate2d(Eigen::MatrixXd data_2d);
+        Eigen::MatrixXd rotate3d(const Eigen::MatrixXd &data_3d);
+        Eigen::MatrixXd rotate2d(const Eigen::MatrixXd &data_2d);
     
     private:
         Eigen::Vector3d m_light_direction = {0., 1., 1.};

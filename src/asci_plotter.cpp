@@ -13,7 +13,7 @@ ASCIPlotter::ASCIPlotter(int canvas_width, int canvas_height) : m_canvas_width(c
 
 }
 
-void ASCIPlotter::provide_data_3d(Eigen::MatrixXd data_3d) {
+void ASCIPlotter::provide_data_3d(const Eigen::MatrixXd &data_3d) {
 
     m_plotting_data = data_3d;
 
@@ -21,7 +21,9 @@ void ASCIPlotter::provide_data_3d(Eigen::MatrixXd data_3d) {
 
 }
 
-void ASCIPlotter::compute_projection(Eigen::MatrixXd data_3d, double x_scale, double y_scale, double depth_offset) {
+void ASCIPlotter::compute_projection(const Eigen::MatrixXd &data_3d, double x_scale, 
+                                                                     double y_scale,
+                                                                     double depth_offset) {
     
     m_ooz = 1. / (data_3d.col(2).array() + depth_offset);
 
@@ -68,13 +70,13 @@ void ASCIPlotter::plot_asci() {
 
 }
 
-Eigen::MatrixXd ASCIPlotter::rotate3d(Eigen::MatrixXd data_3d) {
+Eigen::MatrixXd ASCIPlotter::rotate3d(const Eigen::MatrixXd &data_3d) {
 
     return data_3d;
 
 }
 
-Eigen::MatrixXd ASCIPlotter::rotate2d(Eigen::MatrixXd data_2d) {
+Eigen::MatrixXd ASCIPlotter::rotate2d(const Eigen::MatrixXd &data_2d) {
 
     return data_2d;
 
