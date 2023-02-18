@@ -26,6 +26,7 @@ class ASCIPlotter {
     private:
         Eigen::Vector3d m_light_direction = {0., 1., 1.};
 
+        int m_elements_number;
         char m_output[MAX_ARRAY_SIZE][MAX_ARRAY_SIZE];
         double m_zbuffer[MAX_ARRAY_SIZE][MAX_ARRAY_SIZE];
 
