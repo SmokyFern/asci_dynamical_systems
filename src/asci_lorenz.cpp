@@ -8,10 +8,11 @@
 namespace dyns = dynamical_systems;
 namespace intrs = integrators;
 
-ASCIPlotter plotter(200, 40);
+std::string asci_symbols = ".,-~:;=!*#$@"; 
+ASCIPlotter plotter(asci_symbols, 200, 40);
 
 std::unique_ptr<dyns::DynamicalSystem> lorenz_sys;
-MeshGenerator3D cube_of_points(-0.1, 0.1, 10);
+MeshGenerator3D cube_of_points(-0.01, 0.01, 10);
 
 Eigen::MatrixXd states;
 Eigen::MatrixXd lorenz_offset = Eigen::MatrixXd::Zero(1, 3);
@@ -32,7 +33,7 @@ int main() {
         plotter.compute_projection(states, 1000., 150., 250.);
         plotter.plot_asci();
 
-        usleep(10000);
+        usleep(20000);
 
     }
 
