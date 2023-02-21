@@ -25,6 +25,8 @@ namespace dynamical_systems {
             double m_sigma;
             double m_beta;
             double m_rho;
+            
+            int dimensionality = 3;
 
     };
 
